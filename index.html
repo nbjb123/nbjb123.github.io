@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<style>
+    #container {
+        display: flex;
+    }
+
+    #Label {
+        font-size: 30px;
+        color: blue;
+        position: absolute;
+        margin-top: 30%;
+        margin-left: 40%;
+    }
+
+    #temp {
+        font-size: 30px;
+        color: orange;
+        position: absolute;
+        margin-top: 35%;
+        margin-left: 45%;
+        margin-right: 45%;
+    }
+
+    .title {
+        position: absolute;
+        text-align: center;
+        margin-top: 2%;
+        margin-left: 40%;
+        margin-right: 40%;
+    }
+
+    .dropdown {
+        border-color: red;
+        border-radius: 4px;
+        position: absolute;
+        margin-top: 10%;
+        margin-left: 35%;
+        padding: 5px;
+    }
+
+    .btn {
+        background-color: orange;
+        border-color: blue;
+        color: green;
+        position: absolute;
+        margin-top: 20%;
+        margin-left: 45%;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .tempTB {
+        text-align: center;
+        font-size: 15px;
+        border-color: black;
+        position: absolute;
+        margin-top: 10%;
+        margin-left: 50%;
+    }
+</style>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="container">
+            <h1 class="title">Temp Change</h1>
+            <input type="button" class="btn" id="convert" value="Convert" />
+            <select class="dropdown" id="drop">
+                <option id="F" value="Fahrenheit">Fahrenheit</option>
+                <option id="C" value="Celsius">Celsius</option>
+            </select>
+            <input class="tempTB" id="textbox" placeholder="Enter Temp" />
+            <p id="Label">Conversion:</p>
+            <p id="temp">---</p>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById("convert").onclick = function () {
+            var num;
+            if (document.getElementById("drop").value == "Fahrenheit") {
+                num = document.getElementById("textbox").value;
+                var new_temp = num * 1.8000 + 32;
+                document.getElementById("temp").innerHTML = new_temp;
+                document.getElementById("Label").innerHTML = "C to F Conversion:";
+            }
+            if (document.getElementById("drop").value == "Celsius") {
+                num = document.getElementById("textbox").value;
+                num = num - 32
+                var new_temp = num / 1.8000;
+                document.getElementById("temp").innerHTML = new_temp;
+                document.getElementById("Label").innerHTML = "F to C Conversion:";
+            }
+        }
+    </script>
+
+</body>
+</html>
